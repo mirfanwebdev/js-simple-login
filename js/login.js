@@ -22,7 +22,7 @@ class Login {
         } 
       });
       // if everything validate, error will be 0 and continue
-      if (error = 0) {
+      if (error == 0) {
         // do login api here, in this case just submit form and set localstorage item
         localStorage.setItem("auth", 1);
         this.form.submit();
@@ -61,6 +61,14 @@ class Login {
           );
           return true;
         }
+      } else {
+        // set the satus based on the field without text and return success message
+        this.setStatus(
+          field,
+          null,
+          "success"
+        );
+        return true;
       }
     }
   }
@@ -94,5 +102,3 @@ if (form) {
   // run the class
   const validator = new Login(form, fields);
 };
-
-
